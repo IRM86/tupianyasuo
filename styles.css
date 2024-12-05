@@ -1,0 +1,253 @@
+:root {
+    --primary-color: #007AFF;
+    --background-color: #F5F5F7;
+    --card-background: #FFFFFF;
+    --text-color: #1D1D1F;
+    --border-radius: 12px;
+}
+
+/* 暗黑模式变量 */
+[data-theme="dark"] {
+    --primary-color: #0A84FF;
+    --background-color: #1C1C1E;
+    --card-background: #2C2C2E;
+    --text-color: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #86868B;
+}
+
+.upload-section {
+    margin-bottom: 2rem;
+}
+
+.upload-area {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    text-align: center;
+    border: 2px dashed #E5E5E5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-color);
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+    fill: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.support-text {
+    color: #86868B;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.preview-section {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.preview-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.preview-box {
+    flex: 1;
+    text-align: center;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.controls {
+    padding-top: 2rem;
+    border-top: 1px solid #E5E5E5;
+}
+
+.quality-control {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #E5E5E5;
+    border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.download-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+.file-info {
+    margin-top: 1rem;
+    color: #86868B;
+}
+
+/* 添加主题切换按钮样式 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--card-background);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 添加控制按钮样式 */
+.image-controls {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: #0056b3;
+}
+
+/* 裁剪区域样式 */
+.crop-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: crosshair;
+    z-index: 1000;
+}
+
+.crop-area {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    background: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.crop-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.filter-controls {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.control-select {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.control-select:hover {
+    border-color: var(--primary-color);
+}

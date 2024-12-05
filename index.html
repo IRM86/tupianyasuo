@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>图片压缩工具</h1>
+        
+        <!-- 上传部分 -->
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            <div id="dropZone" class="upload-area">
+                <p>点击或拖拽图片到此处</p>
+            </div>
+        </div>
+
+        <!-- 预览部分 -->
+        <div id="previewSection" class="preview-section" hidden>
+            <div class="preview-container">
+                <div class="preview-box">
+                    <h3>原始图片</h3>
+                    <div class="image-container">
+                        <img id="originalImage" alt="原始图片">
+                    </div>
+                    <div class="file-info">
+                        大小：<span id="originalSize">0 KB</span>
+                    </div>
+                </div>
+                <div class="preview-box">
+                    <h3>压缩预览</h3>
+                    <div class="image-container">
+                        <img id="compressedImage" alt="压缩预览">
+                    </div>
+                    <div class="file-info">
+                        大小：<span id="compressedSize">0 KB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 控制部分 -->
+            <div class="controls">
+                <div class="quality-control">
+                    <label for="quality">压缩质量：</label>
+                    <input type="range" id="quality" min="1" max="100" value="80">
+                    <span id="qualityValue">80%</span>
+                </div>
+                <div class="filter-control">
+                    <label for="filterSelect">图片滤镜：</label>
+                    <select id="filterSelect" class="control-select">
+                        <option value="none">无滤镜</option>
+                        <option value="grayscale">黑白</option>
+                        <option value="sepia">复古</option>
+                        <option value="blur">模糊</option>
+                        <option value="brightness">明亮</option>
+                        <option value="contrast">对比度</option>
+                        <option value="hue-rotate">色相旋转</option>
+                        <option value="invert">反色</option>
+                    </select>
+                </div>
+                <div class="image-controls">
+                    <button id="cropBtn" class="control-btn">裁剪</button>
+                    <button id="undoCropBtn" class="control-btn">撤回裁剪</button>
+                    <button id="rotateLeft" class="control-btn">向左旋转</button>
+                    <button id="rotateRight" class="control-btn">向右旋转</button>
+                    <button id="downloadBtn" class="control-btn">下载</button>
+                </div>
+                <div id="cropControls" class="crop-controls" hidden>
+                    <button id="applyCrop" class="control-btn">确认裁剪</button>
+                    <button id="cancelCrop" class="control-btn">取消裁剪</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
